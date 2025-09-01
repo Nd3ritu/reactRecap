@@ -6,13 +6,13 @@ body {
   font-family: sans-serif;
   margin: 100px;
   padding: 0px;
-  background-color: blue;
+  background-color: rgb(231, 245, 112);
   
 }
 
 .square {
   background: #fff;
-  border: 1px solid #999;
+  border: 1px solid #1bf008;
   float: left;
   font-size: 24px;
   font-weight: bold;
@@ -23,11 +23,42 @@ body {
   padding: 100px;
   text-align: center;
   width: 100px;
+  border-radius: 40px;
+  
+}
+.square:focus {
+  outline: none;
 }
 
+.square:hover {
+  background-color: #ccc;
+}
+
+.square:active {
+  background-color: #888;
+  
+  transition: background-color 1s ease-in-out;
+}
 .board-row:after {
   clear: both;
   content: '';
   display: table;
+}
+
+.board-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.status {
+  margin-bottom: 10px;
+  color: rgb(1, 2, 27);
+  font-size: xx-large;
+  font-family: cursive;
+  text-align: center;
+  margin-right: 120px;
+
 }
 
