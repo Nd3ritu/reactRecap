@@ -10,12 +10,21 @@ function Square({value, onSquareClick}) {
 }
 
 export default function Board() {
+  const [xIsNext, setXIsNext] = useState(true);
   const [squares, setSquares] = useState(Array(9).fill(null)) // created an array with nine elements and sets each of them to null
 
   function handleClick(i){
     const nextSquares = squares.slice(); //slice () creates a portion of the original array
-    nextSquares[i] = 'X';
+
+    // determining which player's turn it is
+    if (xIsNext){ 
+      nextSquares[i] = "X";
+    } else{
+      nextSquares[i] = "O";
+    }
     setSquares(nextSquares); //responsible for updating the state of the component that has changed as this trigges a re-render of the components that use the squares state (Board) as well as its child components (Square)
+
+    setXIsNext(!xIsNext);   
   }
 
     return (
