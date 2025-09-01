@@ -14,6 +14,10 @@ export default function Board() {
   const [squares, setSquares] = useState(Array(9).fill(null)) // created an array with nine elements and sets each of them to null
 
   function handleClick(i){
+
+    if (squares[i]){  //checks if a square has already being clicked 
+      return;
+    }
     const nextSquares = squares.slice(); //slice () creates a portion of the original array
 
     // determining which player's turn it is
