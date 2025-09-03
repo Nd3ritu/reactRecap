@@ -50,8 +50,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  padding: 20px;
-  
+  align-items: center;
 }
 
 .status {
@@ -60,7 +59,7 @@ body {
   font-size: xx-large;
   font-family: cursive;
   text-align: center;
-  border-bottom: 2px solid rgb(213, 236, 6);
+  
 
 }
 
