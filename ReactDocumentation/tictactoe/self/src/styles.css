@@ -1,18 +1,19 @@
 * {
   box-sizing: border-box;
+  
 }
 
 body {
   font-family: sans-serif;
   margin: 100px;
   padding: 0px;
-  background-color: rgb(231, 245, 112);
+  background-color: rgb(5, 5, 4);
   
 }
 
 .square {
   background: #fff;
-  border: 1px solid #1bf008;
+  border: 2px solid #e0e402 ;
   float: left;
   font-size: 24px;
   font-weight: bold;
@@ -54,11 +55,11 @@ body {
 
 .status {
   margin-bottom: 10px;
-  color: rgb(1, 2, 27);
+  color: rgb(213, 236, 6);
   font-size: xx-large;
   font-family: cursive;
   text-align: center;
-  margin-right: 120px;
+  border-bottom: 2px solid rgb(213, 236, 6);
 
 }
 
