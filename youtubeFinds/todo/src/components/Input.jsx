@@ -13,17 +13,17 @@ const Input = ({taskList, setTaskList}) => {
 
     const [input, setInput] = useState("")
     return (
-        <form>
+        <form className="flex flex-row gap-2">
             <input
             type="text"
-            className="border-2 border-purple-600"
+            className="border-2 border-purple-600 text-center "
             placeholder="Add a new task"
             value={input}
             onChange={(e) => setInput(e.target.value)} 
             
             />
 
-            <button onClick={handleAddTask}> Add</button>
+            <button onClick={handleAddTask} className="bg-purple-600 p-2 text-white"> Add</button>
         </form>
     )
 }

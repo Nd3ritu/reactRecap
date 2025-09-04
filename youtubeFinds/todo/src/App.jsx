@@ -7,6 +7,8 @@ function App() {
 
   return (
     <>
+    <div className='flex flex-col items-center justify-center  gap-4 py-8'>
+
       <h1 className='text-3xl text-red-600'>To-Do </h1>
       <Input  taskList={taskList} setTaskList={setTaskList}/>
       <div>
@@ -14,6 +16,9 @@ function App() {
           <li key={index}>{task}</li>
         ))}
       </div>
+
+    </div>
+      
     </>
   )
 }
