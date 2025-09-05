@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Input from './components/Input'
+import { Board } from './components/Board'
 
 function App() {
   const [taskList , setTaskList] = useState([])
