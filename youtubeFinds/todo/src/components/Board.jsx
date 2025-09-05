@@ -1,7 +1,9 @@
 import React from 'react'
 
-export const Board = () => {
+export const Board = ({task}) => {
   return (
-    <div>Board</div>
+    <div className=''>
+        <p>{task}</p>
+    </div>
   )
 }

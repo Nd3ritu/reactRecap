@@ -12,13 +12,20 @@ function App() {
 
       <h1 className='text-3xl text-red-600'>To-Do </h1>
       <Input  taskList={taskList} setTaskList={setTaskList}/>
-      <div>
-        {taskList.map((task, index) => (
-          <li key={index}>{task}</li>
-        ))}
-      </div>
 
     </div>
+
+    <div className='grid grid-cols-3 gap-4 px-8'>
+        {taskList.map((task, index) => (
+          <Board 
+          key={index}
+          task={task}
+          
+          />
+        ))}
+    </div>
+
+    
       
     </>
   )
