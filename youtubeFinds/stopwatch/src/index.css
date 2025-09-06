@@ -1,1 +1,10 @@
 @import "tailwindcss";
+
+/*************  ✨ Windsurf Command ⭐  *************/
+* {
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  user-select: none;
+  box-sizing: border-box;
+}
+/*******  c854177c-4304-4122-80db-e1572cf7a2c3  *******/  
