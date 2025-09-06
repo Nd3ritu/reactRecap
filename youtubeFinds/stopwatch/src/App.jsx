@@ -13,6 +13,11 @@ function App() {
       <span>{("0" + Math.floor((time / 60) % 60)).slice(-2)}</span>
     
     </div>
+    <div>
+      <button>Start</button>
+      <button>Stop</button>
+      <button>Reset</button>
+    </div>
       
     </>
   )
