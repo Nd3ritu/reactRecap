@@ -19,7 +19,8 @@ function App() {
 
   return (
     <>
-    <h1>Counter Up Timer</h1>
+    <div className='grid place-items-center h-screen bg-gray-800 text-white text-center space-y-5'>
+      <h1>Counter Up Timer</h1>
     <div>
       <span>{("0" + Math.floor((time / 60000) % 60)).slice(-2)}:</span> 
       <span>{("0" + Math.floor((time / 1000) % 60)).slice(-2)}:</span>
@@ -31,6 +32,9 @@ function App() {
       <button onClick={() => setRunning(false)}>Stop</button>
       <button onClick={() => setTime(0)}>Reset</button>
     </div>
+
+    </div>
+    
       
     </>
   )
