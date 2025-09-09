@@ -4,14 +4,13 @@ import './index.css'
 import TodoList from './hooks/useState/passingInitializerfunction'
 import Counter from './hooks/useState/updateStateBasedPreviousState'
 import MovingDot from './hooks/useState/updateObjectState'
+import UseSpreadOperatorUpdateObjectPart from './hooks/useState/useSpreadOperatorUpdateObjectPart'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <MovingDot />
-    
-    
-    
-    {/* <Counter />  passing updater function to setState to update the previous state */}
-    {/* <TodoList /> */}
+   <UseSpreadOperatorUpdateObjectPart />    
+{/* <MovingDot /> */}
+{/* <Counter />  passing updater function to setState to update the previous state */}
+{/* <TodoList /> */}
   </StrictMode>,
 )
