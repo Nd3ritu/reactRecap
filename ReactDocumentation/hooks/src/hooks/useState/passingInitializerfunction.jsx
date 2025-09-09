@@ -31,3 +31,8 @@ export default function TodoList() {
         </>
     )
 }
+
+// Passing an initializer function to usestate avoids the cost of creating the initial state on every render 
+// initializer function should be pure and take no arguments and should return a value of the initial state
+
+//Passing the initial state directly to useState would cause the createInitialTodos function to be invoked on every render, which is inefficient. 
