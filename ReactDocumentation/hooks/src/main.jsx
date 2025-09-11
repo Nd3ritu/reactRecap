@@ -7,10 +7,12 @@ import MovingDot from './hooks/useState/updateObjectState'
 import UseSpreadOperatorUpdateObjectPart from './hooks/useState/useSpreadOperatorUpdateObjectPart'
 import UpdateNestedObjectPart from './hooks/useState/updateNestedObjectPart'
 
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-<UpdateNestedObjectPart />
-   
+  
+
+{/* <UpdateNestedObjectPart /> */}
 {/* <UseSpreadOperatorUpdateObjectPart />     */}
 {/* <MovingDot /> */}
 {/* <Counter />  passing updater function to setState to update the previous state */}
