@@ -6,10 +6,12 @@ import Counter from './hooks/useState/updateStateBasedPreviousState'
 import MovingDot from './hooks/useState/updateObjectState'
 import UseSpreadOperatorUpdateObjectPart from './hooks/useState/useSpreadOperatorUpdateObjectPart'
 import UpdateNestedObjectPart from './hooks/useState/updateNestedObjectPart'
-
+import UpdateNestedObjectPartUsingImmer from './hooks/useState/updateNestedObjectUsingImmer'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <UpdateNestedObjectPartUsingImmer />
+
   
 
 {/* <UpdateNestedObjectPart /> */}

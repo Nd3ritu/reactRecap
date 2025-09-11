@@ -12,41 +12,27 @@ export default function UpdateNestedObjectPart() {
 
 
     function handleNameChange(e){
-        console.log(e.target.value)
-        setUser({
-            ...user,
-            name: e.target.value
+        setUser( draft => {
+            draft.artwork.name = e.target.value;
         })
     }
 
     function handleTitleChange(e){
-        setUser({
-            ...user,
-            artwork:{
-                ...user.artwork,
-                title: e.target.value
-            }
+        setUser(draft => {
+            draft.artwork.title = e.target.value;
         })
     }
 
     function handleCityChange(e){
-        setUser({
-            ...user,
-            artwork:{
-                ...user.artwork,
-                city:e.target.value
-            }
+        setUser(draft => {
+            draft.artwork.city = e.target.value;
         })
 
     }
 
     function handleImageChange(e){
-        setUser({
-            ...user,
-            artwork:{
-                ...user.artwork,
-                image:e.target.value
-            }
+        setUser(draft => {
+            draft.artwork.image = e.target.value;
         })
 
     }
