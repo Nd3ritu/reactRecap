@@ -7,13 +7,13 @@ import MovingDot from './hooks/useState/updateObjectState'
 import UseSpreadOperatorUpdateObjectPart from './hooks/useState/useSpreadOperatorUpdateObjectPart'
 import UpdateNestedObjectPart from './hooks/useState/updateNestedObjectPart'
 import UpdateNestedObjectPartUsingImmer from './hooks/useState/updateNestedObjectUsingImmer'
+import 
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <UpdateNestedObjectPartUsingImmer />
 
-  
 
+{/* <UpdateNestedObjectPartUsingImmer /> */}
 {/* <UpdateNestedObjectPart /> */}
 {/* <UseSpreadOperatorUpdateObjectPart />     */}
 {/* <MovingDot /> */}
