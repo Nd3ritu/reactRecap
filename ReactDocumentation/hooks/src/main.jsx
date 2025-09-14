@@ -7,10 +7,11 @@ import MovingDot from './hooks/useState/updateObjectState'
 import UseSpreadOperatorUpdateObjectPart from './hooks/useState/useSpreadOperatorUpdateObjectPart'
 import UpdateNestedObjectPart from './hooks/useState/updateNestedObjectPart'
 import UpdateNestedObjectPartUsingImmer from './hooks/useState/updateNestedObjectUsingImmer'
-import 
+import PushFuncToArr from './hooks/useState/pushFuncToArr'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <PushFuncToArr />
 
 
 {/* <UpdateNestedObjectPartUsingImmer /> */}
