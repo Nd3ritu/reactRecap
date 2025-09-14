@@ -14,7 +14,12 @@ export default function PushFuncToArr() {
            <input value={name} onChange={(e) => setName(e.target.value)}/>
 
 
-           <button >
+           <button onClick={() => {
+            artists.push({
+                id:nextId++,
+                name:name
+            })
+           }}>
             Add artists
            </button>
 
