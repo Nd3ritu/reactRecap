@@ -6,6 +6,8 @@ export default function PushFuncToArr() {
     const [name, setName] = useState("");
     const [artists, setArtists] = useState([]);
 
+    console.log(artists);
+
     return (
         <>
            <h1>Best pop artists</h1>
@@ -23,7 +25,12 @@ export default function PushFuncToArr() {
             Add artists
            </button>
 
+           
+
            <ul>
+            {artists.map(artist => (
+                <li key={artist.id}>{artist.name}</li>
+            ))}
 
            </ul>
 
