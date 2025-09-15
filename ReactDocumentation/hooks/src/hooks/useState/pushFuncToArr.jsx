@@ -21,7 +21,11 @@ export default function PushFuncToArr() {
                 id:nextId++,
                 name:name
             })
-           }}>
+
+           }}
+            
+           
+           >
             Add artists
            </button>
 

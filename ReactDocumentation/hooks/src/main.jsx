@@ -12,10 +12,10 @@ import UseSpreadToAddIntoArray from './hooks/useState/useSpreadToAddIntoArray'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <UseSpreadToAddIntoArray />
+    {/* <UseSpreadToAddIntoArray /> */}
     
     
-{/* <PushFuncToArr /> */}
+<PushFuncToArr />
 
 
 {/* <UpdateNestedObjectPartUsingImmer /> */}
