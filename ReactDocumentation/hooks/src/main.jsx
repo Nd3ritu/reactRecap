@@ -9,13 +9,16 @@ import UpdateNestedObjectPart from './hooks/useState/updateNestedObjectPart'
 import UpdateNestedObjectPartUsingImmer from './hooks/useState/updateNestedObjectUsingImmer'
 import PushFuncToArr from './hooks/useState/pushFuncToArr'
 import UseSpreadToAddIntoArray from './hooks/useState/useSpreadToAddIntoArray'
+import DeletingArray from './hooks/useState/deletingArray'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    {/* <UseSpreadToAddIntoArray /> */}
+{/* <UseSpreadToAddIntoArray /> */}
+<DeletingArray />
+
     
     
-<PushFuncToArr />
+{/* <PushFuncToArr /> */}
 
 
 {/* <UpdateNestedObjectPartUsingImmer /> */}
