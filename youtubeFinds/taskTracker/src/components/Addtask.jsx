@@ -15,7 +15,8 @@ export default function Addtask() {
          {addmodal ? (
             <>
                <div className="flex items-center justify-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
-                <div className="text-2xl flex flex-row justify-between w-1/2 p-5 border bg-white">
+                <div className="bg-white rounded-lg shadow-md  w-1/3 flex flex-col relative">
+                    <div className="text-2xl flex flex-row justify-between  p-5  bg-white">
                     <h3 className="bg-white">Add New Task</h3>
                 <button 
                     className="px-1 text-gray-400 float-right leading-none block font-semibold"
@@ -25,6 +26,16 @@ export default function Addtask() {
                     
                 </button>
                 </div>
+                <form className="p-6">
+                    <input 
+                         id="project-name"
+                         type="text"
+                         placeholder="Project Name"
+                    />
+                </form>
+
+                </div>
+                
                </div>
             </>
          ):null}
