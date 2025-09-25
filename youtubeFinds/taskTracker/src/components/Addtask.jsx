@@ -1,10 +1,33 @@
-
+import { useState } from "react"
 
 export default function Addtask() {
-    return (
-        <> 
+    const [addmodal, setAddmodal] = useState(false)
 
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-1 rounded " >+New</button>
+
+    return (
+        <>
+         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-1 rounded "
+            type="button"
+            onClick={() => setAddmodal(true)} 
+         >
+            +New
+         </button>
+         {addmodal ? (
+            <>
+               <div className="flex items-center justify-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
+                <div className="text-2xl flex flex-row justify-between w-1/2 p-5 border bg-white">
+                    <h3 className="bg-white">Add New Task</h3>
+                <button 
+                    className="px-1 text-gray-400 float-right leading-none block font-semibold"
+                    onClick={() => setAddmodal(false)}
+                >
+                    x
+                    
+                </button>
+                </div>
+               </div>
+            </>
+         ):null}
 
 
         
