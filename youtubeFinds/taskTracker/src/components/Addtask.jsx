@@ -2,6 +2,19 @@ import { useState } from "react"
 
 export default function Addtask() {
     const [addmodal, setAddmodal] = useState(false)
+    const [projectName,setProjectName] = useState("")
+    const [taskDescription,setTaskDescription] = useState("")
+
+    function handleInput(e){
+        const {name,value} = e.target
+        if(name === "projectName"){
+            setProjectName(value)
+        }else if(name === "taskDescription"){
+            setTaskDescription(value)
+        }
+
+    }
+
 
 
     return (
@@ -42,6 +55,9 @@ export default function Addtask() {
                          id="project-name"
                          type="text"
                          placeholder="Project Name"
+                         name="projectName"
+                         value={projectName}
+                         onChange={handleInput}
                          className="bg-gray-200 text-gray-700 border border-gray-100  rounded py-3 px-4 mb-5 leading-tight focus:outline-none focus:bg-white focus:border-gray-300 w-full"
                          required
                     />
@@ -55,14 +71,19 @@ export default function Addtask() {
                             className="bg-gray-200 text-gray-700 border border-gray-100  rounded py-3 px-4 mb-5 leading-tight focus:outline-none focus:bg-white focus:border-gray-300 w-full"
                             placeholder="Task description"
                             required
+                            name="taskDescription"
                             id="task-description"
+                            value={taskDescription}
+                            onChange={handleInput}
                         />
                     </div>
                     
                 </form>
                 <div className="flex justify-end">
                     <button 
-                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-5">
+                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-5"
+                    onClick={() => setAddmodal(false)}
+                    >
                     Add Task
                 </button>
 
