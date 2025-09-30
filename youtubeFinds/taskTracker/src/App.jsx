@@ -1,5 +1,6 @@
 import Addtask from "./components/Addtask"  
 import { useState } from "react"
+import ToDo from "./components/ToDo"
 
 function App() {
   const [taskList, setTasklist] = useState([])
@@ -19,11 +20,7 @@ function App() {
 
       {taskList.map((task,i) =>
         <>
-        <p>{task.projectName}</p>
-        <p>{task.taskDescription}</p>
-
-
-
+        <ToDo key={i} task={task}/>
         </>
       )}
   
