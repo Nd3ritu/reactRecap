@@ -1,17 +1,26 @@
 import { useState } from "react"
 
-export default function Addtask() {
+export default function Addtask({taskList,setTasklist}) {
     const [addmodal, setAddmodal] = useState(false)
     const [projectName,setProjectName] = useState("")
     const [taskDescription,setTaskDescription] = useState("")
 
     function handleInput(e){
         const {name,value} = e.target
-        if(name === "projectName"){
-            setProjectName(value)
-        }else if(name === "taskDescription"){
-            setTaskDescription(value)
-        }
+        if(name === "projectName") setProjectName(value)
+    
+        
+        if(name === "taskDescription")  setTaskDescription(value)
+        
+
+    }
+
+    function handleAddTask(e){
+        e.preventDefault()
+        setTasklist([...taskList, {projectName, taskDescription} ])
+        setAddmodal(false)
+        setProjectName("")
+        setTaskDescription("")
 
     }
 
@@ -82,7 +91,7 @@ export default function Addtask() {
                 <div className="flex justify-end">
                     <button 
                     className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-5"
-                    onClick={() => setAddmodal(false)}
+                    onClick={handleAddTask}
                     >
                     Add Task
                 </button>
