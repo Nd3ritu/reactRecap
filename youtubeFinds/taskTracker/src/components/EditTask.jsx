@@ -16,13 +16,13 @@ const EditTask = ({task, index, taskList, setTasklist}) => {
 
     }
 
-    function handleAddTask(e){
+    function handleUpdateTask(e){
         e.preventDefault()
+        let taskIndex = taskList.indexOf(task)
+        taskList.splice(taskIndex,1)
         setTasklist([...taskList, {projectName, taskDescription} ])
         setAddmodal(false)
-        setProjectName("")
-        setTaskDescription("")
-
+    
     }
 
   return (
@@ -88,7 +88,7 @@ const EditTask = ({task, index, taskList, setTasklist}) => {
                 <div className="flex justify-end">
                     <button 
                     className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-5"
-                    onClick={handleAddTask}
+                    onClick={handleUpdateTask}
                     >
                     Update Task
                 </button>
