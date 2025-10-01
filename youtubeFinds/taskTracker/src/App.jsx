@@ -20,7 +20,7 @@ function App() {
 
       {taskList.map((task,i) =>
         <>
-        <ToDo key={i} task={task}/>
+        <ToDo key={i} task={task} index={i} taskList={taskList} setTasklist={setTasklist}/>
         </>
       )}
   
