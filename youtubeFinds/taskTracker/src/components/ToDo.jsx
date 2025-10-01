@@ -1,12 +1,12 @@
 import EditTask from "./EditTask"
 
-export default function ToDo({task}) {
+export default function ToDo({task, index, taskList, setTasklist}) {
     return (
         <>
         <div className="flex flex-col items-start justify-start border bg-white border-gray-300 py-4 px-6 ml-4 my-10 mr-4 p-4 rounded mb-4 w-3/4 max-w-lg">
             <div className="w-full flex flex-row justify-between ">
                 <p className="font-semibold text-xl">{task.projectName}</p>
-                <EditTask />
+                <EditTask task={task} index={index} taskList={taskList} setTasklist={setTasklist} />
             </div>
 
             <p className="text-lg py-2 ">{task.taskDescription}</p>
