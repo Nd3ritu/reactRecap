@@ -1,10 +1,15 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 
 const EditTask = ({task, index, taskList, setTasklist}) => {
     const [editModal, setEditmodal] = useState(false)
     const [projectName,setProjectName] = useState("")
     const [taskDescription,setTaskDescription] = useState("")
+
+    useEffect(() => {
+        setProjectName(task.projectName)
+        setTaskDescription(task.taskDescription)
+    },[])
 
     function handleInput(e){
         const {name,value} = e.target
@@ -21,7 +26,7 @@ const EditTask = ({task, index, taskList, setTasklist}) => {
         let taskIndex = taskList.indexOf(task)
         taskList.splice(taskIndex,1)
         setTasklist([...taskList, {projectName, taskDescription} ])
-        setAddmodal(false)
+        setEditmodal(false)
     
     }
 
