@@ -4,10 +4,14 @@ export default function Addtask({taskList,setTasklist}) {
     const [addmodal, setAddmodal] = useState(false)
     const [projectName,setProjectName] = useState("")
     const [taskDescription,setTaskDescription] = useState("")
+    const [errorMessage,setErrorMessage] = useState("")
 
     function handleInput(e){
         const {name,value} = e.target
-        if(name === "projectName") setProjectName(value)
+        if(name === "projectName") {setProjectName(value), setErrorMessage("")  }
+        if (name ==="projectName" && value === "") {
+            setErrorMessage("Project Name is required")
+        }
     
         
         if(name === "taskDescription")  setTaskDescription(value)
@@ -17,10 +21,16 @@ export default function Addtask({taskList,setTasklist}) {
 
     function handleAddTask(e){
         e.preventDefault()
+        if (!projectName) {
+            setErrorMessage("Project Name is required")
+        } else{
+
+        
         setTasklist([...taskList, {projectName, taskDescription} ])
         setAddmodal(false)
         setProjectName("")
         setTaskDescription("")
+        }
 
     }
 
@@ -70,6 +80,7 @@ export default function Addtask({taskList,setTasklist}) {
                          className="bg-gray-200 text-gray-700 border border-gray-100  rounded py-3 px-4 mb-5 leading-tight focus:outline-none focus:bg-white focus:border-gray-300 w-full"
                          required
                     />
+                    <p className="text-red-500 mb-2 text-center text-sm font-semibold">{errorMessage}</p>
 
                     </div>
                     <div>
