@@ -1,6 +1,17 @@
 import EditTask from "./EditTask"
+import { useState } from "react"
 
 export default function ToDo({task, index, taskList, setTasklist}) {
+    const [time, setTime] = useState(0)
+
+    function formatTime(ms){
+        const hours = String(Math.floor((ms/ 3600000) % 24)).padStart(2, '0')
+        const minutes = String(Math.floor((ms/60000) % 60)).padStart(2, '0')
+        const seconds = String(Math.floor((ms/1000) % 60)).padStart(2, '0')
+
+        return `${hours}:${minutes}:${seconds}`
+
+    }
 
     function handleDelete(itemID){
         let removeItem = taskList.indexOf(task)
@@ -17,6 +28,19 @@ export default function ToDo({task, index, taskList, setTasklist}) {
             </div>
 
             <p className="text-lg py-2 ">{task.taskDescription}</p>
+            <div>
+                <div>
+                    <span>
+                        {formatTime(time)}
+                    </span>
+
+
+                </div>
+
+                <div>
+
+                </div>
+            </div>
 
             <div className="w-full flex justify-center">
                 <button className="bg-red-500 text-white text-sm uppercase font-semibold py-1.5 px-4 rounded-lg " onClick={handleDelete} >Delete</button>
