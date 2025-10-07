@@ -1,8 +1,21 @@
 import EditTask from "./EditTask"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 export default function ToDo({task, index, taskList, setTasklist}) {
     const [time, setTime] = useState(0)
+    const [running, setRunning] = useState(false)
+
+    useEffect(() => {
+        let interval;
+        if (running) {
+            interval =setInterval(() => {
+                setTime((prevTime ) => prevTime + 10)
+            }, 10)
+        } else if (!running) {
+            clearInterval(interval)
+        }
+        return () => clearInterval(interval)
+    }, [running])
 
     function formatTime(ms){
         const hours = String(Math.floor((ms/ 3600000) % 24)).padStart(2, '0')
@@ -28,7 +41,7 @@ export default function ToDo({task, index, taskList, setTasklist}) {
             </div>
 
             <p className="text-lg py-2 ">{task.taskDescription}</p>
-            <div>
+            <div className="flex flex-col items-center justify-center w-full my-4 ">
                 <div>
                     <span>
                         {formatTime(time)}
@@ -37,7 +50,14 @@ export default function ToDo({task, index, taskList, setTasklist}) {
 
                 </div>
 
-                <div>
+                <div className="flex flex-row gap-4 my-2  ">
+                    {running ? (
+                        <button className="border p-1 rounded-lg " onClick={() => setRunning(false)}>Stop</button>
+                    ):(
+                        <button className="border p-1 rounded-lg " onClick={() => setRunning(true)}>Start</button>
+                    )}
+
+                    <button className="border p-1 rounded-lg " onClick={() => setTime(0)}>Reset</button>
 
                 </div>
             </div>
