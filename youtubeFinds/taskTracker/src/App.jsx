@@ -11,7 +11,8 @@ function App() {
   return (
     <>
     
-      <h1 className="text-3xl p-4 ">Task Tracker</h1>
+      <div className="flex flex-col items-center justify-center bg-gray-400 min-h-screen">
+        <h1 className="text-3xl p-4 ">Task Tracker</h1>
       <div className="flex  flex-row items-center">
         <p className="pl-2 pr-2">Click </p>
       < Addtask taskList={taskList} setTasklist={setTasklist}/>
@@ -24,6 +25,7 @@ function App() {
         </>
       )}
   
+      </div>
       
     </>
   )
