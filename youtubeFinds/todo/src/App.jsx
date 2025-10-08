@@ -20,6 +20,9 @@ function App() {
           <Board 
           key={index}
           task={task}
+          index={index}
+          taskList={taskList}
+          setTaskList={setTaskList}
           
           />
         ))}
