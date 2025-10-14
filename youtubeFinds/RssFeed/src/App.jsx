@@ -25,7 +25,12 @@ function App() {
 
   return (
     <>
+    <div className='flex flex-col items-center justify-center font-semibold mt-30 text-2xl font-serif italic bg-gray-400 '>
       <h1>Nderitu's RSS Feed</h1>
+      <h2>Yo, Here's what's happenin Gang</h2>
+
+    </div>
+      
     </>
   )
 }
