@@ -1,4 +1,6 @@
 import RSSparser from 'rss-parser';
+import cors from 'cors';
+import express from 'express';
 
 const feedURL = "https://feeds-api.dotdashmeredith.com/v1/rss/google/f6a0e92b-be8d-4abb-9106-703b04059e19"
 
@@ -15,3 +17,12 @@ const parse = async url => {
 }
 
 parse(feedURL)
+
+let app = express();
+app.use(cors());
+
+const server = app.listen("4000", () => {
+    console.log("App is listening at http://localhost:4000");
+})
+
+export default server;
