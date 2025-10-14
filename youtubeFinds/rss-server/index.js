@@ -6,9 +6,12 @@ const parser = new RSSparser();
 
 const parse = async url => {
     const feed = await parser.parseURL(url);
-    return feed.items;
+
+    console.log(feed.title);
+
+    feed.items.forEach(item => {
+        console.log(item.title + ':' + item.link)
+    })  
 }
 
-parse(feedURL).then(items => {
-    console.log(items);
-});
+parse(feedURL)
