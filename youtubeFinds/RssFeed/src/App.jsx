@@ -2,6 +2,7 @@ import { useState , useEffect} from 'react'
 import Investopedia from './components/Investopedia'  
 
 import axios from 'axios'
+import Navbar from './components/Navbar'
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
 
   return (
     <> 
+    <Navbar />
     <div className='flex flex-col items-center justify-center  text-3xl gap-4 py-8 font-bold text-white '>
       <h1>Nderitu's RSS Feed</h1>
       <h2>Yo, Here's what's happenin Gang</h2>
