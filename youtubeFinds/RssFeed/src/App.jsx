@@ -26,7 +26,7 @@ function App() {
 
   return (
     <> 
-    <div className='flex flex-col items-center justify-center  gap-4 py-8 font-bold text-white '>
+    <div className='flex flex-col items-center justify-center  text-3xl gap-4 py-8 font-bold text-white '>
       <h1>Nderitu's RSS Feed</h1>
       <h2>Yo, Here's what's happenin Gang</h2>
 
@@ -40,7 +40,7 @@ function App() {
           key={i}
           title={item.item.title}
           link={item.item.link}
-          categories={item.item.categories}
+          categories={item.item.categories[0]}
           creator={item.item.creator}
           pubDate={item.item.pubDate}
           guid={item.item.guid}
