@@ -15,6 +15,7 @@ const parse = async url => {
 
     feed.items.forEach(item => {
         articles.push({item});
+        console.log(articles)
     })  
 }
 
@@ -25,6 +26,7 @@ app.use(cors());
 
 app.get("/", (req,res) => {
     res.send(articles)
+    
 })
 
 const server = app.listen("4000", () => {

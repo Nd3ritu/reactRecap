@@ -1,4 +1,5 @@
 import { useState , useEffect} from 'react'
+import Feed from './components/Feed'
 
 import axios from 'axios'
 
@@ -24,10 +25,30 @@ function App() {
 
 
   return (
-    <>
-    <div className='flex flex-col items-center justify-center font-semibold mt-30 text-2xl font-serif italic bg-gray-400 '>
+    <> 
+    <div className='flex flex-col items-center justify-center  gap-4 py-8 font-bold text-white '>
       <h1>Nderitu's RSS Feed</h1>
       <h2>Yo, Here's what's happenin Gang</h2>
+
+    </div>
+    <div className='grid grid-cols-4 gap- font-semibold text-xs '>
+      
+      
+      {articles.map((item,i) =>   
+        <Feed 
+
+          key={i}
+          title={item.item.title}
+          link={item.item.link}
+          categories={item.item.categories}
+          creator={item.item.creator}
+          pubDate={item.item.pubDate}
+          guid={item.item.guid}
+          contentSnippet={item.item.contentSnippet}
+
+        
+        />
+      ) }
 
     </div>
       
