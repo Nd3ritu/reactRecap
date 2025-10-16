@@ -1,5 +1,5 @@
 import { useState , useEffect} from 'react'
-import Feed from './components/Feed'
+import Investopedia from './components/Investopedia'  
 
 import axios from 'axios'
 
@@ -35,7 +35,7 @@ function App() {
       
       
       {articles.map((item,i) =>   
-        <Feed 
+        <Investopedia 
 
           key={i}
           title={item.item.title}

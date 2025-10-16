@@ -1,7 +1,7 @@
 
 import React from 'react'
 
-export default function Feed({title, creator,link,pubDate, categories, guid }){
+export default function Investopedia({title, creator,link,pubDate, categories, guid }){
   
   const formatted = {
     day: 'numeric',
