@@ -14,22 +14,47 @@ const Navbar = () => {
                      <li>
                        <a href="#" className=' relative border p-2 rounded-lg hover:text-green-400 shadow-lg bg-black '>Investopedia</a>
                      </li>
+                </div>
+
+                     <div className='relative'> 
+                    <div className='absolute -inset-2 blur shadow-lg bg-green-400 rounded-lg'></div>
+                    <li>
+                    <a href="#" className='relative bg-black shadow-lgborder p-2 rounded-lg  hover:text-green-400 '>Investingcom</a>
+
+                </li>
 
                 </div>
-                
-                <li>
-                    <a href="#" className='border p-2 rounded-lg  hover:text-green-400 '>Investingcom</a>
 
+                <div className='relative'>
+                    <div className='absolute -inset-2 blur shadow-lg bg-green-400 rounded-lg'></div>
+                    <li>
+                    <a href="#" className='relative bg-black shadow-lg border p-2 rounded-lg  hover:text-green-400'>Bloomberg</a>
                 </li>
-                <li>
-                    <a href="#" className='border p-2 rounded-lg  hover:text-green-400'>Bloomberg</a>
+                </div>
+
+                <div className='relative'>
+                    <div className='absolute -inset-2 blur shadow-lg bg-green-400 rounded-lg'></div>
+
+                    <li>
+                        <a href="#" className='relative shadow-lg bg-black border p-2 rounded-lg  hover:text-green-400'>Forbes</a>
+                    </li>
+                    
+                </div>
+
+                <div className='relative'> 
+                    <div className='absolute -inset-2 blur shadow-lg bg-green-400 rounded-lg'></div>
+                    <li>
+                    <a href="#" className='relative bg-black shadow-lg border p-2 rounded-lg  hover:text-green-400'>CNBC</a>
                 </li>
-                <li>
-                    <a href="#" className='border p-2 rounded-lg  hover:text-green-400'>Forbes</a>
-                </li>
-                <li>
-                    <a href="#" className='border p-2 rounded-lg  hover:text-green-400'>CNBC</a>
-                </li>
+                </div>
+                
+                
+
+                
+                
+                
+                
+                
                
             </ul>
 
