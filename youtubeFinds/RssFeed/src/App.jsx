@@ -1,5 +1,6 @@
 import { useState , useEffect} from 'react'
 import Investopedia from './components/Investopedia'  
+import GoodMorning from './components/GoodMorning'
 
 import axios from 'axios'
 import Navbar from './components/Navbar'
@@ -28,9 +29,10 @@ function App() {
   return (
     <> 
     <Navbar />
-    <div className='flex flex-col items-center justify-center  text-3xl gap-4 py-8 font-bold text-white '>
-      <h1 className='  text-green-400'>Nderitu's RSS Feed</h1>
-      <h2>Yo, Here's what's happenin Gang</h2>
+    <div className='flex flex-col items-center justify-center  text-3xl gap-4 py-20 font-bold text-white '>
+      <GoodMorning />
+      
+
 
     </div>
     <div className='grid grid-cols-4 gap- font-semibold text-xs '>
