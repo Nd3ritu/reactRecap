@@ -26,14 +26,18 @@ export default function Investopedia({title, creator,link,pubDate, categories, g
         </h1>
 
       
-      <div className='relative'>
-        <div className='absolute inset-0 blur shadow-lg bg-purple-400 rounded-lg ml-23  max-w-fit'></div>
-              <h5 className='relative mb-9 text-sm border  rounded-lg p-1 bg-black text-white max-w-fit justify-center ml-25 '>{categories}</h5>
-
+      <div className="relative inline-block mb-10 ml-23 mt-4  ">
+        <div className="absolute  -inset-1.5 bg-purple-600 blur-lg opacity-70 rounded-lg"></div>
+        <h5 className="relative text-sm border border-purple-500 rounded-lg px-3 py-1 bg-black text-white">
+            {categories}
+        </h5>
       </div>
+
       
       <div className=' mb-4 flex justify-between flex-row'>
-      <h5 className='mb-2 text-green-400 text-center align-center justify-center ml-10  '>{date}</h5>
+      <h5 className='mb-2 text-green-400 text-center align-center justify-center ml-10  '>
+        <TypeAnimation speed={2}  cursor={false} sequence={[date, 1000]} wrapper='h5' repeat={Infinity} className='text-green-400 italic ' />
+        </h5>
 
       </div>
       
