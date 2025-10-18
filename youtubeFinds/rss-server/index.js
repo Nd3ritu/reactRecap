@@ -2,7 +2,8 @@ import RSSparser from 'rss-parser';
 import cors from 'cors';
 import express from 'express';
 
-const feedURL = "https://feeds-api.dotdashmeredith.com/v1/rss/google/f6a0e92b-be8d-4abb-9106-703b04059e19"
+const investopediaURL = "https://feeds-api.dotdashmeredith.com/v1/rss/google/f6a0e92b-be8d-4abb-9106-703b04059e19"
+const cnbcURL = "https://www.cnbc.com/id/100003114/device/rss/rss.html"
 
 const parser = new RSSparser();
 
@@ -19,7 +20,7 @@ const parse = async url => {
     })  
 }
 
-parse(feedURL)
+parse(investopediaURL, cnbcURL);
 
 let app = express();
 app.use(cors());
