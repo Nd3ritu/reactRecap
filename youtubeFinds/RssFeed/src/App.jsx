@@ -1,6 +1,7 @@
 import { useState , useEffect} from 'react'
 import Investopedia from './components/Investopedia'  
 import GoodMorning from './components/GoodMorning'
+import Cnbc from './components/Cnbc'
 
 import axios from 'axios'
 import Navbar from './components/Navbar'
@@ -51,6 +52,21 @@ function App() {
           contentSnippet={item.item.contentSnippet}
 
         
+        />
+      ) }
+
+      {articles.map((item,i) =>   
+        <Cnbc 
+          key={i}
+          title={itemm.item.title}
+          link={item.item.link}
+        
+          
+          pubDate={item.item.pubDate}
+          
+          contentSnippet={item.item.contentSnippet}
+
+          
         />
       ) }
 
