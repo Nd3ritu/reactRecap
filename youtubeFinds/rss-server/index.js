@@ -20,7 +20,7 @@ const parse = async url => {
     })  
 }
 
-parse(cnbcURL);
+parse(investopediaURL,cnbcURL);
 
 let app = express();
 app.use(cors());

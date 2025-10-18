@@ -58,7 +58,7 @@ function App() {
       {articles.map((item,i) =>   
         <Cnbc 
           key={i}
-          title={itemm.item.title}
+          title={item.item.title}
           link={item.item.link}
         
           
