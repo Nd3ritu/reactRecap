@@ -60,6 +60,7 @@ function App() {
           key={i}
           title={item.item.title}
           link={item.item.link}
+          content={item.item.content}
         
           
           pubDate={item.item.pubDate}
