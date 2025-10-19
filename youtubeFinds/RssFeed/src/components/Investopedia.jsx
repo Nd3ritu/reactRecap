@@ -37,7 +37,7 @@ export default function Investopedia({title, creator,link,pubDate, categories, g
       <div className=' mb-4 flex justify-between flex-row'>
       <h5 className='mb-2 text-green-400 text-center align-center justify-center ml-10  '>
         <TypeAnimation speed={2}  cursor={false} sequence={[date, 1000]} wrapper='h5' repeat={Infinity} className='text-green-400 italic ' />
-        </h5>
+      </h5>
 
       </div>
       
@@ -49,3 +49,4 @@ export default function Investopedia({title, creator,link,pubDate, categories, g
     </>
   )
 }
+

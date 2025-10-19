@@ -4,6 +4,10 @@ import express from 'express';
 
 const investopediaURL = "https://feeds-api.dotdashmeredith.com/v1/rss/google/f6a0e92b-be8d-4abb-9106-703b04059e19"
 const cnbcURL = "https://www.cnbc.com/id/100003114/device/rss/rss.html"
+const investingComURL = "https://www.investing.com/rss/news_1.rss"
+
+
+
 
 const parser = new RSSparser();
 
@@ -20,7 +24,7 @@ const parse = async url => {
     })  
 }
 
-parse(investopediaURL,cnbcURL);
+parse(investingComURL);
 
 let app = express();
 app.use(cors());
