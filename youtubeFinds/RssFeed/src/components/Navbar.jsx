@@ -47,6 +47,10 @@ const Navbar = () => {
                     <a href="#" className='relative bg-black shadow-lg border p-2 rounded-lg  hover:text-green-400'>CNBC</a>
                 </li>
                 </div>
+
+                <div className='relative' >
+                    <button className='absolute '>Filter</button>
+                </div>
                 
                 
 
