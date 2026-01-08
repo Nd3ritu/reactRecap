@@ -1,4 +1,5 @@
 import React from 'react'
+import FilterButton from './FilterButton'
 
 const Navbar = () => {
   return (
@@ -48,9 +49,7 @@ const Navbar = () => {
                 </li>
                 </div>
 
-                <div className='relative' >
-                    <button className='absolute '>Filter</button>
-                </div>
+                <FilterButton />
                 
                 
 
