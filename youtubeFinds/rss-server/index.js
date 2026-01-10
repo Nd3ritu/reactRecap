@@ -1,6 +1,6 @@
-import RSSparser from 'rss-parser';
-import cors from 'cors';
-import express from 'express';
+import RSSparser from 'rss-parser'; //Library that fetches RSS XML and turns it into Javascript objects
+import cors from 'cors';//Middleware that allows cross origin requests and without it the app gets blocked by the browser because it lacks CORS headers for security reasons.
+import express from 'express'; //minimalist http server for Node.js
 
 const investopediaURL = "https://feeds-api.dotdashmeredith.com/v1/rss/google/f6a0e92b-be8d-4abb-9106-703b04059e19"
 const cnbcURL = "https://www.cnbc.com/id/100003114/device/rss/rss.html"
@@ -9,33 +9,15 @@ const investingComURL = "https://www.investing.com/rss/news_1.rss"
 
 
 
-const parser = new RSSparser();
+const parser = new RSSparser(); //creates a reusable parser object which internally fetches URLs ,parse XML and returns JS objects.
 
-let articles = [];
+const  feeds = [
+    {name: "investopedia", url: investopediaURL},
+    {name: "cnbc", url: cnbcURL},
+    {name: "investing.com", url: investingComURL}
+]
 
-const parse = async url => {
-    const feed = await parser.parseURL(url);
+//
+async function loadFeed(){
 
-    console.log(feed.enclosure);
-
-    feed.items.forEach(item => {
-        articles.push({item});
-        console.log(articles)
-    })  
 }
-
-parse(investingComURL);
-
-let app = express();
-app.use(cors());
-
-app.get("/", (req,res) => {
-    res.send(articles)
-    
-})
-
-const server = app.listen("4000", () => {
-    console.log("App is listening at http://localhost:4000");
-})
-
-export default server;
