@@ -51,6 +51,6 @@ app.get("/", (req,res) => {
 })
 
 app.listen(4000, () => {
-    
+    console.log("App listening at http://localhost:4000")
 })
 
