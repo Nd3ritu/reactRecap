@@ -17,7 +17,35 @@ const  feeds = [
     {name: "investing.com", url: investingComURL}
 ]
 
+let articles =[]; //array that will hold all the articles from all the feeds
+
 //
 async function loadFeed(){
-
+    try {
+        const results = await Promise.all(
+            feeds.map(async feed => {
+                const parsed = await parser.parseURL(feed.url);
+                return parsed.items.map(item =>({
+                    name: feed.name,
+                    title: item.title,
+                    link: item.link,
+                    content: item.content
+                }))
+            })
+        )
+        articles = results.flat();
+        console.log(`Loaded ${articles.length} articles`)
+    }
+     catch (error) {
+        console.error("Error loading feed:", error);
+    }
 }
+
+await loadFeed(); //Initial load of the feed when the server starts
+
+const app = express();
+app.use(cors()); //Enables CORS for all routes
+
+app.get("/", (req,res) => {
+    res.json(articles);
+})
