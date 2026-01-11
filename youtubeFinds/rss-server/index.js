@@ -50,5 +50,7 @@ app.get("/", (req,res) => {
     res.json(articles);
 })
 
-app.listen()
+app.listen(4000, () => {
+    
+})
 
