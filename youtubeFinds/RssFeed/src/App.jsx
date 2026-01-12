@@ -43,13 +43,14 @@ function App() {
         <Investopedia 
 
           key={i}
-          title={item.item.title}
-          link={item.item.link}
-          categories={item.item.categories[0]}
-          creator={item.item.creator}
-          pubDate={item.item.pubDate}
-          guid={item.item.guid}
-          contentSnippet={item.item.contentSnippet}
+          name={item.name}
+          title={item.title}
+          link={item.link}
+          //categories={item.item.categories[0]}
+         // creator={item.item.creator}
+          pubDate={item.pubDate}
+          guid={item.guid}
+          //contentSnippet={item.item.contentSnippet}
 
         
         />
@@ -58,14 +59,15 @@ function App() {
       {articles.map((item,i) =>   
         <Cnbc 
           key={i}
-          title={item.item.title}
-          link={item.item.link}
-          content={item.item.content}
+          name={item.name}
+          title={item.title}
+          link={item.link}
+        //  content={item.item.content}
         
           
-          pubDate={item.item.pubDate}
+          pubDate={item.pubDate}
           
-          contentSnippet={item.item.contentSnippet}
+         // contentSnippet={item.item.contentSnippet}
 
           
         />
