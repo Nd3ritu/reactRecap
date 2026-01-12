@@ -27,14 +27,17 @@ async function loadFeed(){
                 const parsed = await parser.parseURL(feed.url);
                 return parsed.items.map(item =>({
                     name: feed.name,
-                    title: item.title,
-                    link: item.link,
-                    content: item.content
+                    title: item.title || item.item.title,
+                    guid: item.guid,
+                    pubDate: item.pubDate,
+                   
+
                 }))
             })
         )
         articles = results.flat();
         console.log(`Loaded ${articles.length} articles`)
+        console.log(articles)
     }
      catch (error) {
         console.error("Error loading feed:", error);
