@@ -2,6 +2,7 @@ import { useState , useEffect} from 'react'
 import Investopedia from './components/Investopedia'  
 import GoodMorning from './components/GoodMorning'
 import Cnbc from './components/Cnbc'
+import InvesstingCom from './components/InvesstingCom'
 
 import axios from 'axios'
 import Navbar from './components/Navbar'
@@ -71,7 +72,28 @@ function App() {
 
           
         />
+
+
       ) }
+
+      {articles.map((item,i) =>   
+        <InvesstingCom 
+          key={i}
+          name={item.name}
+          title={item.title}
+          link={item.link}
+        //  content={item.item.content}
+        
+          
+          pubDate={item.pubDate}
+          
+         // contentSnippet={item.item.contentSnippet}
+
+          
+        />        
+
+
+      ) } 
 
     </div>
       
