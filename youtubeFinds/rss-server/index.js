@@ -1,7 +1,6 @@
 import RSSParser from "rss-parser";
 import express from "express";
 import cors from "cors";
-import { DATE } from "mysql/lib/protocol/constants/types";
 
 const parser = new RSSParser();
 
@@ -65,17 +64,17 @@ app.get("/", (req, res) => {
 });
 
 app.get("/filtered", (req, res) => {
-  const {timeRange} = req.query;
-  let filteredArticles = articles;
+  const {timeRange} = req.query; //extracting the timerange from query parameters from what the user wants to filter out
+  let filteredArticles = articles; // using a copy of articles to filter because we don't want to modify the original articles array
 
-  if (timeRange){
-    const threshold = getTimeThreshold(timeRange);
-    if (threshold) {
-      filteredArticles = articles.filter(article => new Date(app.pubDate) >= threshold)
+  if (timeRange){ //checking if timerange is provided in the query parameters
+    const threshold = getTimeThreshold(timeRange); //getting the threshold date based on the provided timerange
+    if (threshold) { //checking if the threshold is valid
+      filteredArticles = articles.filter(article => new Date(article.pubDate) >= threshold) // filtering articles based on the threshold date and only keeping articles greater than threshold datte as thhey are the recent ones
     }
   }
 
-  res.json(filteredArticles);
+  res.json(filteredArticles); //sending the filtered articles as response
 })
 
 app.listen(4000, async () => {
