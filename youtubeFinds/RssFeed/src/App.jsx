@@ -42,16 +42,15 @@ function App() {
       
       {articles.map((item,i) =>   
         <Investopedia 
-
-          key={i}
+        key={i}
           name={item.name}
-          title={item.title}
+          title={item.title || ""}
           link={item.link}
-          //categories={item.item.categories[0]}
-         // creator={item.item.creator}
-          pubDate={item.pubDate}
-          guid={item.guid}
-          //contentSnippet={item.item.contentSnippet}
+        
+         summary={item.contentSnippet || item.content || ""}
+        
+          
+          pubDate={item.pubDate || item.isoDate || ""}
 
         
         />
@@ -61,14 +60,14 @@ function App() {
         <Cnbc 
           key={i}
           name={item.name}
-          title={item.title}
+          title={item.title || ""}
           link={item.link}
-        //  content={item.item.content}
+        
+         summary={item.contentSnippet || item.content || ""}
         
           
-          pubDate={item.pubDate}
-          
-         // contentSnippet={item.item.contentSnippet}
+          pubDate={item.pubDate || item.isoDate || ""}
+      
 
           
         />
@@ -78,16 +77,16 @@ function App() {
 
       {articles.map((item,i) =>   
         <InvesstingCom 
-          key={i}
+        key={i}
           name={item.name}
-          title={item.title}
+          title={item.title || ""}
           link={item.link}
-        //  content={item.item.content}
+        
+         summary={item.contentSnippet || item.content || ""}
         
           
-          pubDate={item.pubDate}
+          pubDate={item.pubDate || item.isoDate || ""}
           
-         // contentSnippet={item.item.contentSnippet}
 
           
         />        
