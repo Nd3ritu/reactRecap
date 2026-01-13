@@ -5,7 +5,7 @@ import { ChevronDownIcon } from '@heroicons/react/20/solid'
 const FilterButton = () => {
   return (
     <Menu as="div" className="relative inline-block">
-      <MenuButton className="absolute bg-green-400 p-2 mt-20 ml-10 rounded-lg shadow-lg text-black">
+      <MenuButton className="absolute bg-green-400 p-2 mt-20 ml-10 rounded-lg shadow-lg text-black flex flex-row">
         Filter
         <ChevronDownIcon aria-hidden="true" className="-mr-1 size-5 text-gray-400" />
       </MenuButton>
