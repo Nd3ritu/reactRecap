@@ -1,6 +1,7 @@
 import RSSParser from "rss-parser";
 import express from "express";
 import cors from "cors";
+import { DATE } from "mysql/lib/protocol/constants/types";
 
 const parser = new RSSParser();
 
@@ -21,6 +22,23 @@ function normalizeItem(item, source) {
     link: item.link,
     pubDate: new Date(item.pubDate || item.isoDate).toISOString()
   };
+}
+
+//time filtering logic
+function getTimeThreshold(timeRange){
+  const  now = Date.now(); //Date.now() gives time in milliseconds
+
+  //defining the time ranges that will reflect in the frontend in milliseconds
+  const  ranges = {
+    "30m" : 30 * 60 * 1000,
+    "1h" : 60 * 60 *1000,
+    "4h" : 4 * 60 *60 * 1000,
+    "12h" : 12 * 60 * 60 * 1000,
+    "24h" : 24 * 60 * 60 * 1000,
+    "7d" : 7 * 24 * 60 * 60 * 1000
+  }
+
+  return ranges[timeRange] ? new Date(now - ranges[timeRange]) : null;
 }
 
 
@@ -45,6 +63,20 @@ app.use(cors());
 app.get("/", (req, res) => {
   res.json(articles);
 });
+
+app.get("/filtered", (req, res) => {
+  const {timeRange} = req.query;
+  let filteredArticles = articles;
+
+  if (timeRange){
+    const threshold = getTimeThreshold(timeRange);
+    if (threshold) {
+      filteredArticles = articles.filter(article => new Date(app.pubDate) >= threshold)
+    }
+  }
+
+  res.json(filteredArticles);
+})
 
 app.listen(4000, async () => {
   await loadFeeds();
