@@ -1,59 +1,52 @@
-import RSSparser from 'rss-parser'; //Library that fetches RSS XML and turns it into Javascript objects
-import cors from 'cors';//Middleware that allows cross origin requests and without it the app gets blocked by the browser because it lacks CORS headers for security reasons.
-import express from 'express'; //minimalist http server for Node.js
+import RSSParser from "rss-parser";
+import express from "express";
+import cors from "cors";
 
-const investopediaURL = "https://feeds-api.dotdashmeredith.com/v1/rss/google/f6a0e92b-be8d-4abb-9106-703b04059e19"
-const cnbcURL = "https://www.cnbc.com/id/100003114/device/rss/rss.html"
-const investingComURL = "https://www.investing.com/rss/news_1.rss"
+const parser = new RSSParser();
 
+const feeds = [
+  { name: "CNBC", url: "https://www.cnbc.com/id/100003114/device/rss/rss.html" },
+  { name: "Investopedia", url: "https://feeds-api.dotdashmeredith.com/v1/rss/google/f6a0e92b-be8d-4abb-9106-703b04059e19" },
+  { name: "Investing.com", url: "https://www.investing.com/rss/news_1.rss" }
+];
 
+let articles = [];
 
-
-const parser = new RSSparser(); //creates a reusable parser object which internally fetches URLs ,parse XML and returns JS objects.
-
-const  feeds = [
-    {name: "investopedia", url: investopediaURL},
-    {name: "cnbc", url: cnbcURL},
-    {name: "investing.com", url: investingComURL}
-]
-
-let articles =[]; //array that will hold all the articles from all the feeds
-
-//
-async function loadFeed(){
-    try {
-        const results = await Promise.all(
-            feeds.map(async feed => {
-                const parsed = await parser.parseURL(feed.url);
-                return parsed.items.map(item =>({
-                    name: feed.name,
-                    title: item.title || item.item.title,
-                    guid: item.guid,
-                    pubDate: item.pubDate,
-                   
-
-                }))
-            })
-        )
-        articles = results.flat();
-        console.log(`Loaded ${articles.length} articles`)
-        console.log(articles)
-    }
-     catch (error) {
-        console.error("Error loading feed:", error);
-    }
+function normalizeItem(item, source) {
+  return {
+    id: `${source}-${item.guid || item.link}`,
+    source,
+    title: item.title || "",
+    summary: item.contentSnippet || item.content || "",
+    link: item.link,
+    pubDate: new Date(item.pubDate || item.isoDate).toISOString()
+  };
 }
 
-await loadFeed(); //Initial load of the feed when the server starts
+
+async function loadFeeds() {
+  const results = await Promise.allSettled(
+    feeds.map(async feed => {
+      const parsed = await parser.parseURL(feed.url);
+      return parsed.items.map(item =>
+        normalizeItem(item, feed.name)
+      );
+    })
+  );
+
+  articles = results
+    .filter(r => r.status === "fulfilled")
+    .flatMap(r => r.value);
+}
 
 const app = express();
-app.use(cors()); //Enables CORS for all routes
+app.use(cors());
 
-app.get("/", (req,res) => {
-    res.json(articles);
-})
+app.get("/", (req, res) => {
+  res.json(articles);
+});
 
-app.listen(4000, () => {
-    console.log("App listening at http://localhost:4000")
-})
-
+app.listen(4000, async () => {
+  await loadFeeds();
+  console.log("Listening on http://localhost:4000/");
+});
