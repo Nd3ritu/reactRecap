@@ -14,7 +14,7 @@ function getGreeting(){
 const GoodMorning = () => {
   const greeting = getGreeting();
   return (
-    <TypeAnimation speed={1}  cursor={true} sequence={[`${greeting} Nderitu...`, 1000]} wrapper="p" repeat={Infinity} className='text-green-400 italic ' />
+    <TypeAnimation speed={1}  cursor={true} sequence={[`${greeting} Nderitu...`, 1000]} wrapper="p" repeat={Infinity} className='text-green-400 italic ml-200 ' />
   )
 }
 

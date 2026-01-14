@@ -3,7 +3,7 @@ import Investopedia from './components/Investopedia'
 import GoodMorning from './components/GoodMorning'
 import Cnbc from './components/Cnbc'
 import InvesstingCom from './components/InvesstingCom'
-
+import FilterButton from "./components/FilterButton"
 import axios from 'axios'
 import Navbar from './components/Navbar'
 
@@ -31,8 +31,9 @@ function App() {
   return (
     <> 
     <Navbar />
-    <div className='flex flex-col items-center justify-center  text-3xl gap-4 py-20 font-bold text-white '>
+    <div className='flex flex-row items-center justify-between  text-3xl gap-4 py-20 font-bold text-white '>
       <GoodMorning />
+      <FilterButton onSelect={(value) => console.log("Selected filter:", value)} />
       
 
 

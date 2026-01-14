@@ -2,54 +2,33 @@ import React from 'react'
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 
-const FilterButton = () => {
+const FilterButton = ({onSelect}) => {
+  const timeFilters = [
+    {label: '30m', value:"30m"},
+    {label: '1h', value:"1h"},
+    {label: '4h', value:"4h"},
+    {label: '12h', value:"12h"},
+    {label: '1D', value:"24h"},
+    {label: '1W', value:"7d"}
+  ]
+
+
   return (
-    <Menu as="div" className="relative inline-block">
-      <MenuButton className="absolute bg-green-400 p-2 mt-20 ml-10 rounded-lg shadow-lg text-black flex flex-row">
+    <Menu as="div" className=" ">
+      <MenuButton className=" bg-green-400 p-0.5  rounded-lg shadow-lg text-black flex flex-row items-center text-lg hover:bg-green-500 mr-50 ">
         Filter
-        <ChevronDownIcon aria-hidden="true" className="-mr-1 size-5 text-gray-400" />
+        <ChevronDownIcon aria-hidden="true" className=" size-5 " />
       </MenuButton>
 
-      <MenuItems
-        transition
-        className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-gray-800 outline-1 -outline-offset-1 outline-white/10 transition data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in"
-      >
-        <div className="py-1">
-          <MenuItem>
-            <a
-              href="#"
-              className="block px-4 py-2 text-sm text-gray-300 data-focus:bg-white/5 data-focus:text-white data-focus:outline-hidden"
-            >
-              Account settings
-            </a>
+      <MenuItems>
+        {timeFilters.map(filter => (
+          <MenuItem key={filter.value}>
+            <button
+              onClick={() => onSelect(filter.value)}
+            
+            >{filter.label}</button>
           </MenuItem>
-          <MenuItem>
-            <a
-              href="#"
-              className="block px-4 py-2 text-sm text-gray-300 data-focus:bg-white/5 data-focus:text-white data-focus:outline-hidden"
-            >
-              Support
-            </a>
-          </MenuItem>
-          <MenuItem>
-            <a
-              href="#"
-              className="block px-4 py-2 text-sm text-gray-300 data-focus:bg-white/5 data-focus:text-white data-focus:outline-hidden"
-            >
-              License
-            </a>
-          </MenuItem>
-          <form action="#" method="POST">
-            <MenuItem>
-              <button
-                type="submit"
-                className="block w-full px-4 py-2 text-left text-sm text-gray-300 data-focus:bg-white/5 data-focus:text-white data-focus:outline-hidden"
-              >
-                Sign out
-              </button>
-            </MenuItem>
-          </form>
-        </div>
+        ))}
       </MenuItems>
     </Menu>
   )

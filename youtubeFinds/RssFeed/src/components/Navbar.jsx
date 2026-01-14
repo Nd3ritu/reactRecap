@@ -1,5 +1,5 @@
 import React from 'react'
-import FilterButton from './FilterButton'
+
 
 const Navbar = () => {
   return (
@@ -49,7 +49,7 @@ const Navbar = () => {
                 </li>
                 </div>
 
-                <FilterButton />
+                
                 
                 
 
