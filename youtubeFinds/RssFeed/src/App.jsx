@@ -38,7 +38,7 @@ function App() {
 
 
     </div>
-    <div className='grid grid-cols-4 gap- font-semibold text-xs '>
+    <div className='relative grid grid-cols-4 gap- font-semibold text-xs '>
       
       
       {articles.map((item,i) =>   

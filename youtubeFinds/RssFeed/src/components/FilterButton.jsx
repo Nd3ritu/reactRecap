@@ -14,15 +14,15 @@ const FilterButton = ({onSelect}) => {
 
 
   return (
-    <Menu as="div" className=" ">
+    <Menu as="div" className="relative  z-50  ">
       <MenuButton className=" bg-green-400 p-0.5  rounded-lg shadow-lg text-black flex flex-row items-center text-lg hover:bg-green-500 mr-50 ">
         Filter
         <ChevronDownIcon aria-hidden="true" className=" size-5 " />
       </MenuButton>
 
-      <MenuItems>
+      <MenuItems className =" z-[100] absolute outline-none 0  p-2 flex flex-row  text-sm  gap-5 mt-3 -translate-x-30 ">
         {timeFilters.map(filter => (
-          <MenuItem key={filter.value}>
+          <MenuItem key={filter.value} className="  rounded-lg bg-black/80  hover:bg-green-400 hover:text-black p-2 border-gray-700 border shadow-lg  ">
             <button
               onClick={() => onSelect(filter.value)}
             
