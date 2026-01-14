@@ -14,6 +14,10 @@ function App() {
 
   console.log(articles)
 
+  async function fetchArticles() {
+    
+  }
+
 
   const getArticles = async () => {
     try {
