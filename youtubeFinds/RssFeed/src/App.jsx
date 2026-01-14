@@ -10,6 +10,7 @@ import Navbar from './components/Navbar'
 
 function App() {
   const [articles, setArticles] = useState([])
+  const [timeRange, setTimeRange] = useState("30m")
 
   console.log(articles)
 
