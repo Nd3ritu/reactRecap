@@ -15,7 +15,9 @@ function App() {
   console.log(articles)
 
   async function fetchArticles() {
-    
+    const res = await fetch(`http://localhost:4000/?timeRange=${timeRange}`)
+    const data = await res.json()
+    setArticles(data)
   }
 
 
