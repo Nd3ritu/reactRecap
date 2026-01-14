@@ -10,28 +10,20 @@ import Navbar from './components/Navbar'
 
 function App() {
   const [articles, setArticles] = useState([])
-  const [timeRange, setTimeRange] = useState("30m")
+  const [timeRange, setTimeRange] = useState("")
 
   console.log(articles)
 
-  async function fetchArticles() {
-    const res = await fetch(`http://localhost:4000/?timeRange=${timeRange}`)
+  async function fetchArticles(range = "") {
+    const res = await fetch(`http://localhost:4000/filtered${range ? `?timeRange=${range}` : "" }`)
     const data = await res.json()
     setArticles(data)
   }
 
 
-  const getArticles = async () => {
-    try {
-      const res = await axios.get("http://localhost:4000/")
-      setArticles(res.data)
-    } catch (error) {
-      console.log(error)
-    }
-    }
-
+  
     useEffect(() => {
-      getArticles()
+      fetchArticles()
     }, [])
 
 
@@ -40,7 +32,13 @@ function App() {
     <Navbar />
     <div className='flex flex-row items-center justify-between  text-3xl gap-4 py-20 font-bold text-white '>
       <GoodMorning />
-      <FilterButton onSelect={(value) => console.log("Selected filter:", value)} />
+      <FilterButton
+
+       onSelect={(value) => {
+        setTimeRange(value);
+        fetchArticles(value)
+       }}
+       />
       
 
 
