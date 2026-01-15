@@ -15,7 +15,7 @@ let articles = [];
 function normalizeItem(item, source) {
   return {
     id: `${source}-${item.guid || item.link}`,
-    source,
+    source : source.tolowerCase(),
     title: item.title || "",
     summary: item.contentSnippet || item.content || "",
     link: item.link,
@@ -33,8 +33,8 @@ function getTimeThreshold(timeRange){
     "1h" : 60 * 60 *1000,
     "4h" : 4 * 60 *60 * 1000,
     "12h" : 12 * 60 * 60 * 1000,
-    "24h" : 24 * 60 * 60 * 1000,
-    "7d" : 7 * 24 * 60 * 60 * 1000
+    "1D" : 24 * 60 * 60 * 1000,
+    "1W" : 7 * 24 * 60 * 60 * 1000
   }
 
   return ranges[timeRange] ? new Date(now - ranges[timeRange]) : null;
@@ -64,17 +64,17 @@ app.get("/", (req, res) => {
 });
 
 app.get("/filtered", (req, res) => {
-  const {timeRange} = req.query; //extracting the timerange from query parameters from what the user wants to filter out
-  let filteredArticles = articles; // using a copy of articles to filter because we don't want to modify the original articles array
+  const {timeRange} = req.query;                          //extracting the timerange from query parameters from what the user wants to filter out
+  let filteredArticles = articles;                       // using a copy of articles to filter because we don't want to modify the original articles array
 
-  if (timeRange){ //checking if timerange is provided in the query parameters
-    const threshold = getTimeThreshold(timeRange); //getting the threshold date based on the provided timerange
-    if (threshold) { //checking if the threshold is valid
+  if (timeRange){                                         //checking if timerange is provided in the query parameters
+    const threshold = getTimeThreshold(timeRange);                   //getting the threshold date based on the provided timerange
+    if (threshold) {                                     //checking if the threshold is valid
       filteredArticles = articles.filter(article => new Date(article.pubDate) >= threshold) // filtering articles based on the threshold date and only keeping articles greater than threshold datte as thhey are the recent ones
     }
   }
 
-  res.json(filteredArticles); //sending the filtered articles as response
+  res.json(filteredArticles);        //sending the filtered articles as response
 })
 
 app.listen(4000, async () => {
