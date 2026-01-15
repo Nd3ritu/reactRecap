@@ -16,15 +16,17 @@ const componentSource = {
 
 
 function App() {
-  const [articles, setArticles] = useState([])
-  const [timeRange, setTimeRange] = useState("")
+  const [articles, setArticles] = useState([]) //state change for articles being fetched and displayed
+  const [timeRange, setTimeRange] = useState("") //state change for time range filter
 
   console.log(articles)
 
-  async function fetchArticles(range = "") {
-    const res = await fetch(`http://localhost:4000/filtered${range ? `?timeRange=${range}` : "" }`)
-    const data = await res.json()
-    setArticles(data)
+
+  // Async / await function to fetch articles from the backend with optional time range filtering
+  async function fetchArticles(range = "") { //range parameter to specify the time filter if it exists
+    const res = await fetch(`http://localhost:4000/filtered${range ? `?timeRange=${range}` : "" }`) //tertiary operator to check if range exists and if it does, append it as a query parameter
+    const data = await res.json() //parse the response data as JSON because fetch returns a stream of data
+    setArticles(data) //update the articles state with the fetched data
   }
 
 
