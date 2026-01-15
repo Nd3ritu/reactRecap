@@ -7,7 +7,7 @@ import FilterButton from "./components/FilterButton"
 import axios from 'axios'
 import Navbar from './components/Navbar'
 
-
+// Mapping of source names to their respective components for dynamic rendering
 const componentSource = {
   'Investopedia': Investopedia,
   'CNBC': Cnbc,
@@ -54,7 +54,7 @@ function App() {
       {
         articles.map((item, i) => {
           const Component = componentSource[item.source];
-          console.log(Component)
+          
 
           if (!Component) return null;
 
