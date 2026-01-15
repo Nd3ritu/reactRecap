@@ -18,7 +18,7 @@ const Cnbc = ({title, pubDate, link, name, summary}) => {
       <h1>{name}</h1>
       <div className='p-6  max-w-sm border  mb-1   rounded-lg shadow-lg bg-black/80 border-gray-700  backdrop-blur-lg hover:scale-105 transition duration-300 ease-in-out ml-10'>
       <h1 className='mb-6 text-xl text-white italic text-center'>
-        <TypeAnimation speed={2}  cursor={false} sequence={[title, 1000]}  repeat={Infinity} className='text-cyan-400 italic ' />
+        <TypeAnimation speed={2}  cursor={false} sequence={[title, 1000]}  repeat={Infinity} className='text-white italic ' />
         </h1>
 
       {/* <div className="relative inline-block mb-10 ml-23 mt-4  ">

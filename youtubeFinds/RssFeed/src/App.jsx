@@ -60,11 +60,10 @@ function App() {
 
           return (
             <Component 
-              key={`$item.source -${i}`}
+              key={`${item.source} -${item.link}`}
               title={item.title }
               link={item.link}
-              summary = {item.contentSnippet || item.content || ""}
-              pubDate = {item.pubDate || item.isoDate || ""}
+              pubDate = {item.pubDate}
             
             />
           )
