@@ -8,6 +8,13 @@ import axios from 'axios'
 import Navbar from './components/Navbar'
 
 
+const componentSource = {
+  'Investopedia': Investopedia,
+  'CNBC': Cnbc,
+  'Investing.com': InvesstingCom
+}
+
+
 function App() {
   const [articles, setArticles] = useState([])
   const [timeRange, setTimeRange] = useState("")
@@ -44,62 +51,29 @@ function App() {
 
     </div>
     <div className='relative grid grid-cols-4 gap- font-semibold text-xs '>
+      {
+        articles.map((item, i) => {
+          const Component = componentSource[item.source];
+          console.log(Component)
+
+          if (!Component) return null;
+
+          return (
+            <Component 
+              key={`$item.source -${i}`}
+              title={item.title }
+              link={item.link}
+              summary = {item.contentSnippet || item.content || ""}
+              pubDate = {item.pubDate || item.isoDate || ""}
+            
+            />
+          )
+
+        })
+      }
       
       
-      {articles.map((item,i) =>   
-        <Investopedia 
-        key={i}
-          name={item.name}
-          title={item.title || ""}
-          link={item.link}
-        
-         summary={item.contentSnippet || item.content || ""}
-        
-          
-          pubDate={item.pubDate || item.isoDate || ""}
-
-        
-        />
-      ) }
-
-      {articles.map((item,i) =>   
-        <Cnbc 
-          key={i}
-          name={item.name}
-          title={item.title || ""}
-          link={item.link}
-        
-         summary={item.contentSnippet || item.content || ""}
-        
-          
-          pubDate={item.pubDate || item.isoDate || ""}
       
-
-          
-        />
-
-
-      ) }
-
-      {articles.map((item,i) =>   
-        <InvesstingCom 
-        key={i}
-          name={item.name}
-          title={item.title || ""}
-          link={item.link}
-        
-         summary={item.contentSnippet || item.content || ""}
-        
-          
-          pubDate={item.pubDate || item.isoDate || ""}
-          
-
-          
-        />        
-
-
-      ) } 
-
     </div>
       
     </>
