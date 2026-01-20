@@ -15,7 +15,7 @@ let articles = [];
 function normalizeItem(item, source) {
   return {
     id: `${source}-${item.guid || item.link}`,
-    source : source.tolowerCase(),
+    source ,
     title: item.title || "",
     summary: item.contentSnippet || item.content || "",
     link: item.link,
@@ -64,7 +64,13 @@ app.get("/", (req, res) => {
 });
 
 app.get("/filtered", (req, res) => {
-  const {timeRange} = req.query;                          //extracting the timerange from query parameters from what the user wants to filter out
+  const {
+    timeRange,
+    page = 1,
+    limit = 20  
+
+  } = req.query;   
+                         //extracting the timerange from query parameters from what the user wants to filter out
   let filteredArticles = articles;                       // using a copy of articles to filter because we don't want to modify the original articles array
 
   if (timeRange){                                         //checking if timerange is provided in the query parameters

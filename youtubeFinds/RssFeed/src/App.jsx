@@ -30,10 +30,10 @@ function App() {
   }
 
 
-  
+  //useeffect hook to fetch articles when the component mounts 
     useEffect(() => {
       fetchArticles()
-    }, [])
+    }, []) //empty dependency array meaning this effect runs only once when the component mounts 
 
 
   return (
