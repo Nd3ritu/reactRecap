@@ -80,6 +80,8 @@ app.get("/filtered", (req, res) => {
     }
   }
 
+  //pagination logic
+
   res.json(filteredArticles);        //sending the filtered articles as response
 })
 
