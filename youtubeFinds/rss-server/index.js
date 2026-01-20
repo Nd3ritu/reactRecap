@@ -81,6 +81,7 @@ app.get("/filtered", (req, res) => {
   }
 
   //pagination logic
+  const  pageNum = Number(page);  //converting page and limit to numbers
 
   res.json(filteredArticles);        //sending the filtered articles as response
 })
